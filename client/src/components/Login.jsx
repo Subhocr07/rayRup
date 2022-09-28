@@ -11,7 +11,7 @@ import "./Login.css";
 const Login = () => {
     const navigate=useNavigate();
 
-  const Signup=()=>{
+  const Register=()=>{
     navigate("/register")
   }
     const [data, setdata]=useState({
@@ -19,13 +19,13 @@ const Login = () => {
         password:"",
     })
 
-    useEffect(()=> {
+    // useEffect(()=> {
         
-        const auth=localStorage.getItem('user')
-        if (auth) {
-            navigate("/")
-        }
-    })
+    //     const auth=localStorage.getItem('user')
+    //     if (auth) {
+    //         navigate("/profile")
+    //     }
+    // })
 
     const handlesubmit = (e) => {
         e.preventDefault()
@@ -39,7 +39,7 @@ const Login = () => {
         }).then((token)=> {
             console.log('Hello',token.data)
             localStorage.setItem("user",token.data)
-            navigate("/");
+            window.alert("Login successful")
         }).catch((err)=> {
             window.alert(err.response.data)
         })
@@ -79,7 +79,7 @@ const Login = () => {
           <button className="Login" onClick={handlesubmit}>
             Log in
           </button>
-          <a href={"./register"} className="Register" onClick={Signup}>
+          <a href={"./register"} className="Register" onClick={Register}>
             Register
           </a>
         </div>
