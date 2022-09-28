@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react";
+import "./Login.css";
 
 const Login = () => {
     const navigate=useNavigate();
@@ -61,7 +62,7 @@ const Login = () => {
           </div>
           <input
             type="email"
-            placeholder="User Id"
+            placeholder="Please enter email"
             className="email"
             onChange={(e) => {
               setdata({ ...data, email: e.target.value });
@@ -69,16 +70,16 @@ const Login = () => {
           ></input>
           <input
             type="password"
-            placeholder="password"
+            placeholder="Password"
             className="password"
             onChange={(e) => {
               setdata({ ...data, password: e.target.value });
             }}
           ></input>
-          <button className="signin" onClick={handlesubmit}>
+          <button className="Login" onClick={handlesubmit}>
             Log in
           </button>
-          <a href={"./register"} className="signup" onClick={Signup}>
+          <a href={"./register"} className="Register" onClick={Signup}>
             Register
           </a>
         </div>
